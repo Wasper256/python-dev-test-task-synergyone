@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crm',
+    'erp',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +77,21 @@ WSGI_APPLICATION = 'pdttso.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'crm',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'localhost',
+        'USER': 'admin',  # so safe
+        'PASSWORD': 'admin'  # so much security
+    },
+    'erp': {
+        'NAME': 'erp',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'localhost',
+        'USER': 'admin',
+        'PASSWORD': 'admin'
     }
 }
+DATABASE_ROUTERS = ['crm.dbRouter.CrmDBRouter', 'erp.dbRouter.ErpDBRouter']
 
 
 # Password validation
