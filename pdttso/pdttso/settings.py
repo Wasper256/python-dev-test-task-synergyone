@@ -82,16 +82,8 @@ DATABASES = {
         'HOST': 'localhost',
         'USER': 'admin',  # so safe
         'PASSWORD': 'admin'  # so much security
-    },
-    'erp': {
-        'NAME': 'erp',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'localhost',
-        'USER': 'admin',
-        'PASSWORD': 'admin'
     }
 }
-DATABASE_ROUTERS = ['crm.dbRouter.CrmDBRouter', 'erp.dbRouter.ErpDBRouter']
 
 
 # Password validation
