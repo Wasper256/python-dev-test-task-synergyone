@@ -10,7 +10,6 @@ class PaymentViewSet(viewsets.ViewSet):
     permission_classes = (IsAuthenticated, )
 
     def list(self, request, agreement_id):
-        # import ipdb; ipdb.set_trace()
-        queryset = Payment.objects.filter(agreement_id__agreement_id=agreement_id)
+        queryset = Payment.objects.filter(agreement_id__id=agreement_id)
         serializer = PaymentSerializer(queryset, many=True)
         return Response(serializer.data)
